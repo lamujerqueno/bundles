@@ -1,0 +1,443 @@
+\documentclass[A4,11pt,oneside]{book}
+\usepackage[margin=1.15in]{geometry}
+\textheight=19.94cm 
+\textwidth=15.5cm 
+%\topmargin=-4cm 
+%\bottomargin=-2cm 
+%\oddsidemargin=-0.2 cm 
+%\evensidemargin=2 cm 
+%\renewcommand{\baselinestretch}{1.5} 
+%\parindent=1.5cm 
+\usepackage{tikz}
+\usepackage{textcomp}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{amsmath,amscd}
+\usepackage{amssymb}
+\usepackage{calrsfs}
+\usepackage{amsthm}
+\usepackage[all,cmtip]{xy}
+
+\usepackage[toc,page]{appendix}
+
+%\usepackage[spanish,es-lcroman]{babel}
+%\usepackage[english, es-lcroman]{babel}
+
+\usepackage{courier}
+
+\usepackage{dsfont}
+
+\usepackage{enumerate}
+\usepackage{esint}
+
+\usepackage{float}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+
+\usepackage[utf8x]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+\usepackage{stmaryrd}
+
+\usepackage{textcomp}
+\usepackage{pdfpages}
+
+\pagestyle{headings}
+
+\theoremstyle{definition}
+
+\newtheorem{teo}{Theorem}
+\newtheorem{defi}{Definition}
+\newtheorem{ejem}{Examples}
+\newtheorem{lema}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{demo}{Proof}
+
+\begin{document}
+
+% \addcontentsline{toc}{chapter}{Introducci\'on}{}
+        \newpage
+
+%  \includepdf[pages={1}]{cover.pdf}
+
+%\chapter{Steenrod algebra (Masher and Tangora)}
+
+%\section{Introduction}
+%{\LARGE\textbf{Steenrod algebra (Masher and Tangora)}}\\
+
+%A cohomology operation is a natural transformation $\theta:H^m(X;G)\rightarrow H^n(X;H)$, that is for all maps $f:X\rightarrow Y$ the following diagram
+%\begin{displaymath}
+%\xymatrix{ 
+%H^m(X;G)\ar[r]^{\theta_X}\ar[d]^{f^*} &H^m(X;G')\ar[d]^{f^*} \\
+%H^m(Y;G)\ar[r]^{\theta_Y} &H^m(Y;G')
+%}
+%\end{displaymath}
+%commutes.
+%\begin{defi}
+%We denote by $K(G, n)$ any space which has only one non-trivial homotopy group, namely $\pi_n(K(G,n))=G$. 
+%\end{defi}
+%The Hurewicz homomorphism $h:\pi_i(X)\rightarrow H_i(X)$ is defined for any $X$ and any $i$ by choosing a generator $u$ of $H_i(S^i)$ and putting $h:[h]\rightarrow f_*(u)$ where $f:S^i\rightarrow X$. 
+
+%\begin{defi}
+%A space $X$ is said to be $n$-connected if $\pi_i(X)$ is trivial for all $i\leq n$. 
+%\end{defi} 
+%The Hurewicz theorem states that if $X$ is $(n-1)$-connected, then the Hurewicz homomorphism is an isomorphism in dimensions $ i \leq n$ and is still an epimorphism in dimension $n+1$. This theorem is modified if
+%$n=1$; in this case the epimorphism $h:\pi_1(X)\rightarrow H_1(X)$ has a kernel the commutator subgroup of $\pi(X)$ and $h$ does not necessarily maps $\pi_2(X)$ onto $H_2(X)$.\\
+%The universal coefficient theorem for cohomology gives an exact sequence
+%\begin{equation*}
+%0\rightarrow {\rm{Ex}}t(H_{n-1}(X),G)\rightarrow H^n(X;G)\rightarrow {\rm{Hom}}(H_n(X),G)\rightarrow 0
+%\end{equation*}
+%for any space X. If $X$ is $(n-1)$-connected, this becomes an isomorphism between the last two terms of the sequence, since Ext$(0,G)=0$. Now if $G=\pi_n(X)$ then the group Hom$(H_n(X),\pi_n(X))$ contains $h^{-1}$, the inverse of the Hurewicz homomorphism, which is also an isomorphism.
+%\begin{defi}
+%Let $X$ be $(n-1)$-connected. The fundamental class of $X$ is the cohomology class $\iota\in H^n(X;\pi_n(X))$ which correspond to $h^{-1}$ under the above isomorphism.We write sometimes $\iota_n$ or $\iota_X$ instead. 
+%\end{defi} 
+%\begin{teo}
+%There is a one-to-one correspondence $[X,K(G,n)]\rightarrow H^n(X;G)$, given by $[f]\rightarrow f^*(\iota_n)$.
+%\end {teo}
+%Notation: let's write $H^m(G,n;G')$ for $H^m(K(G,n);G')$. 
+
+%\begin{teo}
+%Let denote $O(n,G; m,G')$ the set of all cohomolgy operations. There is a one-to one correspondence 
+%\begin{equation*}
+%O(G,n;G',m)\rightarrow H^m(G,n;G')
+%\end{equation*}
+%given by $\theta\rightarrow\theta(\iota_n)$.
+%\end{teo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Read about Obstruction theory!!!
+
+
+%\section{Steenrod squares}
+
+%Steenrod squares are cohomology operation of type $(\mathbb {Z}_2,n;\mathbb{Z}_2,n-i)$. Given an abelian group $G$ it is possible to construct a $CW$-complex $K(G,n)$ where $n\geq 2$. In particular, we can construct a complex $K(\mathbb {Z}_2,1)$.
+
+%\begin{defi}
+%For each integer $i\geq 0$, define a \emph{cup-i product}
+%\begin{equation*}
+%C^p(K)\otimes C^q\rightarrow C^{p+q-i}(K):(u,v)\rightarrow u\smile_i v
+%\end{equation*}
+%\end{defi}
+% where $C^p(X)$.
+
+\chapter{Fibre bundles and Classifying Spaces}
+
+\begin{defi}
+Let $B$ be a pointed topological space. A (locally trivial) fibre bundle over $B$ consists of a map $p:E\rightarrow B$ such that for all $b\in B$ there exists an open neighbourhood $U$ of $b$ for which there is a homeomorphism $\phi:p^{-1}(U)\rightarrow p^{-1}(*)\times U$ satisfying 
+\begin{equation*}
+\pi''\circ\phi=p\bigl |_U
+\end{equation*}
+where $\pi''$ denotes projection onto the second factor. 
+\end{defi}
+In this case we say that $B$ is  the base space of the fibre bundle, $X$ the total space, $p^{-1}$ the fibre, and $p$ the projection. A bundle map of fibre bundles consists of maps between the total spaces and base spaces which form a commutative square with the bundle projections. 
+\begin{defi}
+Let $G$ be a topological group and $B$ a topological space. A \emph{principal G-bundle} over $B$ consists of a fibre bundle $p:X\rightarrow B$ together with an action $G\times X\rightarrow X$ such that:
+\begin{enumerate}
+\item the  map $G\times X\rightarrow X\times X$ given by $(g,x)\mapsto (x,g\cdot x)$ maps $G\times X$ homeomorphically to its image;
+\item $B= X/G$ and $p:X\rightarrow X/G$ is the quotient map;
+\item for all $b\in B$ there exists a open neighbourhood $U$ of $b$ such that $p:p^{-1}(U)\rightarrow U$ is $G$-bundle isomorphic to the trivial bundle $\pi":G\times U\rightarrow U$. That is, there exists a homeomorphism $\phi:p^{-1}(U)\rightarrow G\times U$ satisfying $p=\pi"\circ\phi$ and $\phi(gx)=g\phi(x)$, where $g(g',u)=(gg',u)$.
+\end{enumerate}
+\end{defi}
+Let $\xi$ be a principal $G$-bundle $p:X\rightarrow G$. Given a map $f:B'\rightarrow B$, the pullback yields a principal $G$-bundle over $B'$, written $f^{*}(\xi)$, and the pullback square becomes a bundle map from $f^{*}(\xi)$ to $\xi$.
+
+\begin{defi}
+A (numerable) principal $G$-bundle $\gamma$ over a pointed space $\tilde B$ is called a \emph{universal G-bundle} if 
+\begin{enumerate}
+ \item for any (numerable) principal $G$-bundle $\xi$ there exists a map $f:B\rightarrow\tilde B$ from the base space $B$ of $\xi$ to the base space of $\gamma$ such that $\xi=f^{*}(\gamma)$;
+ \item whenever $f$,$h$ are two pointed maps from some space $B$ into the base space $\tilde B$ of $\gamma$ such that $f^{*}(\gamma)\cong h^{*}(\gamma)$ then $f\simeq h$.
+ \end{enumerate}
+\end{defi}
+
+In other words, a numerable principal $G$-bundle $\gamma$ with base space $\tilde B$ is a universal $G$-bundle if, for any pointed space $B$, pullback induces a bijection from $[B,\tilde B]$ to isomorphism classes of numerable principal bundles over B. 
+
+Let $G$ be a topological group. Let $EG$ be the infinite join $EG=\underset{\overrightarrow{n}}{\rm{lim}}\;G^{*n}$. Explicity, as a set 
+\begin{equation*}
+EG=\{(g_0,t_0,g_1,t_1,\dots,g_n,t_n,\dots)\in(G\times I)^{\infty}\}/\sim
+\end{equation*}
+such that at most finitely many $t_i$ are nonzero, $\sum t_i=1$, and
+\begin{equation*}
+(g_0,t_0,g_1,t_1,\dots,g_n,0,\dots)\sim(g_0,t_0,g_1,t_1,\dots,g'_n,0,\dots).
+\end{equation*}
+A $G$-action on $EG$ is given by
+\begin{equation*}
+g\cdot(g_0,t_0,g_1,t_1,\cdots,g_n,t_n,\cdots)=(gg_0,t_0,gg_1,t_1,\cdots,gg_n,t_n,\cdots).
+\end{equation*}
+Let $BG=EG/G$. We also write $E_nG=G^{*(n+1)}$ and $B_n(G)=E_nG/G$, referring to the inclusions $B_0G\hookrightarrow B_1G\hookrightarrow B_2G \hookrightarrow\dots B_nG\hookrightarrow\dots $ as the Milnor filtration on $BG$.
+Since homotopy classes of maps into $BG$ classify principal $G$-bundles, $BG$ is called the classifying space of the group $G$. 
+\begin{teo}
+For every topological group $G$, the quotient map $EG\rightarrow BG$ is a (numerable) $G$-bundle and this bundle is a universal $G$-bundle.
+\end{teo}
+
+\begin{defi}
+Let $p:P\rightarrow B$ be a principal $G$-bundle. The gauge group Aut(P) of $P$ is the subspace of all G-equivariant maps $u\in{\rm{Map(P,P)}}$ such that  the following diagram
+\begin{displaymath}
+\xymatrix{ 
+P\ar[r]^u\ar[d]^{p} &P\ar[d]^{p} \\
+B\ar[r] &B
+}
+\end{displaymath}
+
+ commutes.
+\end{defi}
+
+\begin{defi}
+Let $\xi$ be a principal $SO(n)$-bundle over an oriented manifold $B$. A spin structure on $\xi$ is a pair $(\eta,F)$ consisting of 
+\begin{enumerate}
+\item A principal Spin(n)-bundle $\eta$ over $B$
+\item A map $f:E(\eta)\rightarrow E(\xi)$ such that the following diagram is commutative .
+\end{enumerate}
+\begin{displaymath}
+\xymatrix{ 
+E(\eta)\times Spin(n) \ar[r]\ar[d]^{f\times\lambda} &E(\eta)\ar[d]^{f}\ar[r]& B\ar@{=}[d]\\
+E(\eta)\times SO(n)\ar[r] &E(\xi)\ar[r]& B
+}
+\end{displaymath}
+Here $\lambda$ denotes the standard homomorphism from Spin (n) to SO(n).
+\end{defi}
+
+\chapter{The topology of the gauge group}
+
+%\begin{prop}
+%Let $Aut(P)$ denote the group of $G-$equivariant maps of $P$, which cover the identity map of $X$. Then
+%\begin{equation*}
+%\mathcal{G}\simeq Aut(P).
+%\end{equation*}
+%\end{prop}
+%\begin{proof}
+%Let $f:P\righarrow G$ represent a section of AdP
+%\end{proof}
+
+\begin{prop}
+Let $BG$ be the classifying space for $G$. Then in homotopy theory
+\begin{equation*}
+B\mathcal{G}(P)={\rm{Map}}_f(M,BG).
+\end{equation*}
+\end{prop}
+The subscript $f$ denotes the component of Map$(M,BG)$ which contains the map $f$ that induces $P$. 
+\begin{proof}
+Let 
+\begin{equation*}
+G\rightarrow EG\rightarrow BG
+\end{equation*}
+be a universal bundle for $G$, and consider the space Map$(P,EG)$ of $G$-equivariant maps of $P$ to $EG$. The group $\mathcal G(P)$now acts naturally on this space by composition, to yield the principal fibring
+\begin{equation*}
+\mathcal G(P)\longrightarrow {\rm{Map}}(P,EG)\longrightarrow {\rm{Map}}_f(M,BG).
+\end{equation*}
+If $BG$ is paracompact and locally contractible, $\pi$ will be a locally trivial principal fibring. The total space Map$_f(P,EG)$ is contractible so that this is a universal bundle for $\mathcal G(P)$, and
+\begin{equation*}
+B\mathcal G(P)={\rm Map}_f(M,BG)
+\end{equation*}
+as was asserted. 
+
+\end{proof}
+
+\begin{equation}
+\vee_{i=1}^t (S^3\wedge S^4)\vee(\vee_{j=1}^{d-t} P^4(p^r) 
+\end{equation}
+
+\chapter{Counting homotopy types of gauge groups}
+
+\section{Samelson and Whitehead products}
+
+Let $G$ be a homotopy associative $H$-space with multiplication $\mu:G\times G\rightarrow G$ and homotopy inverse $\iota:G\rightarrow G$. We write 
+\begin{equation*}
+\mu(x,y)=xy\quad {\rm{and}}\quad\iota(x)=x^{-1}
+\end{equation*}
+Then we write the commutator map [\;,\;]$:G\times G\rightarrow G$ as
+\begin{equation*}
+[x,y]=\mu(\mu(\mu(X,y),\iota(x)),\iota(y))=((xy)x^{-1})y^{-1}
+\end{equation*}
+or if we ignore the homotopy associativity, as
+\begin{equation*}
+[x,y]=xyx^{-1}y^{-1}
+\end{equation*}
+
+Since it is nullhomotopi con $G\vee G$ the commutator map factors as follows:
+\begin{equation*}
+G\times G\rightarrow G\wedge G\overset{\overline{[\;\;,\;\;]}}{\longrightarrow}G.
+\end{equation*}
+
+IF $f:X\rightarrow G$ and $g;Y\rightarrow G$ are maps, then the commutator
+\begin{equation*}
+C(f,g)=[\;,\;]\circ(f\times g)=fgf^{-1}g^{-1}:X\times Y\rightarrow G\times G\rightarrow G.
+\end{equation*}
+factors up to homotopy through the map
+\begin{equation*}
+[f,g]=\overline{[\;\;,\;\;]}\circ(f\wedge g):X\wedge Y\rightarrow G\wedge G\rightarrow G
+\end{equation*}
+
+\begin{defi} 
+The map $[f,g]:X\wedge Y\rightarrow G$ is called the Samelson product of $f:X\rightarrow G$ and $g:Y\rightarrow G$.
+\end{defi}
+This map is well defined up to homotopy since the sequence of cofibrations 
+\begin{equation*}
+X\vee Y\rightarrow X\times Y\rightarrow X\wedge Y\rightarrow \Sigma X\vee\Sigma Y\rightarrow \Sigma(X\times Y)
+\end{equation*}
+
+\begin{prop}
+The Samelson product vanishes in the range $G$ is homotopy commutative.
+\end{prop}
+
+Samelson products are natural with respect to maps $f_1:X_1\rightarrow X$, $g_1:Y_1\rightarrow Y$, and $H$-maps of $H$-spaces $\psi:G\rightarrow H$, that is 
+\begin{equation*}
+[\psi\circ f\circ f_1,\psi\circ g\circ g_1]\simeq \psi\circ [f, g]\circ(f_1\wedge g_1).
+\end{equation*}
+ 
+Given maps $\bar f:\Sigma X\rightarrow Z$, $\bar g:\Sigma Y\rightarrow Z$ with respective adjoints
+
+\begin{equation*}
+f:X\overset{\Sigma}{\rightarrow}\Omega\Sigma X\overset{\Omega\bar f}{\rightarrow}\Omega Z,\qquad g:X\overset{\Sigma}{\rightarrow}\Omega\Sigma X\overset{\Omega\bar g}{\rightarrow}\Omega Z
+\end{equation*}
+
+we define the Whitehead product $[\bar f,\bar g]_w$ to be the adjoint of the Samelson product $[f,g]$, namely, 
+\begin{defi}
+The Whitehead product $[\bar f,\bar g]_w$ is the compositon 
+\begin{equation*}
+\Sigma(X\wedge Y)\overset{\Sigma[f,g]}{\rightarrow}\Sigma\Omega Z\overset{e}{\rightarrow}Z
+\end{equation*}
+\end{defi}
+
+As with Samelson products, Whitehead products are natural with respect to maps.
+
+\begin{teo}[Crabb and Sutherland Ref] 
+Let $K$ be a connected finite complex and let $G$ be a compact connected Lie group. As $P$ ranges over all principal $G$-bundles with base $K$, the number of homotopy types of $\mathcal{G}(P)$ is finite.
+\end{teo}
+
+\begin{prop}[Spreafico Ref]
+The homotopy type of the gauge group of all the principal $SU(2)$-bundles over $S^n$, with $n=7,8$, is the same and is the one of the trivial bundle, namely $B\mathcal G(S^n)\sim\Omega^n_0SU(2)\times SU(2)$.
+\end{prop}
+
+\section{Poincare Duality}
+
+In this section I will present the background to understand the construction of the topological spaces I will work with in the next sections. To doing so I will have to give a brief introduction to the concepts required to
+state the Poincare Duality Theorem.
+
+\begin{defi}
+A manifold of dimension $n$ or an $n$-manifold is a Hausdorff space $M$ in which each point has an open neighbourhood homeomorphic to $\mathbb{R}^n$. 
+\end{defi}
+
+The dimension of $M$ is characterized by the fact that for $x\in M$, the homology group $H_i(M,M-\{x\})$ is nonzero only for $i=n$. A compact manifold is called closed  to distinguish it from the more general notion of a compact manifold with boundary. 
+
+\begin{defi}
+A local orientation of $M$ at a point $x$ is a choice of generator $\mu_x$ of the infinite cyclic group $H_n(M,M-\{x\})$. 
+\end{defi}
+To simplify notation I will write $H_n(X\mid A)$ for $H_n(X,X-A)$.
+
+\begin{defi}
+An orientation of an $n$-dimensional manifold $M$ is a function $x\mapsto\mu_x$ assigning to each $x\in M$ a local orientation $\mu_x\in H_n(M\mid x)$, satisfying the local consistency condition that each  $x\in M$ has a neighbourhood $\mathbb{R}^n\subset M$ containing an open ball $B$ of finite radius about $x$ such that all the local orientations $\mu_y$ at points $y\in B$ are the images of one generator $\mu_B$ of $H_n(M\mid B)\cong H_n(\mathbb{R}^n\mid B)$ under the natural maps $H_n(M\mid B)\rightarrow H_n(M\mid y)$. 
+\end{defi}
+If an orientation exists for $M$, then $M$ is called orientable. One can generalise the definition of orientation by replacing the coefficient group $\mathbb{Z}$ by any commutative ring $R$ with identity. The orientability of a closed manifold is reflected in the structure of its homology, according to the following results.
+
+\begin{teo}
+Let M ne a closed connected $n$-manifold. Then:
+\begin{enumerate}[a)]
+\item  If $M$ is orientable, the map $H_n(M;R)\rightarrow H_n(M\mid x;R)\cong R$ is an isomorphism for all $x\in M$.
+\item If $M$ is not orientable, the map $H_n(M;R)\rightarrow H_n(M\mid x;R)\cong R$ is injective with image $\{r\in R\mid 2r=0\}$ for all $x\in M$.
+\item $H_i(M;R)=0$ for $i>n$.
+\end{enumerate}
+\end{teo}
+
+
+
+\begin{defi}
+A fundamental class for a closed orientable manifold $M$ with coefficients in $R$ is an element of $H_n(M;R)$ whose image in $H_n(M\mid x;R)$ is a generator for all $x$.
+\end{defi}
+\begin{defi}
+For an arbitrary space $X$ and coefficient ring $R$, define an $R$-bilinear cap product $\frown:C_k(X;R)\times C^l(X;R)\rightarrow C_{k-l}(X;R)$ for $k\geq l$ by setting
+\begin{equation*}
+\sigma\frown\varphi=\varphi(\sigma\mid[v_0,\dots,v_l])\sigma\mid[v_l,\dots,v_k]
+\end{equation*}
+for $\sigma:\Delta^k\rightarrow X$ and $\varphi\in C^l(X;R).$  
+\end{defi}
+\begin{teo}[Poincare duality theorem]
+Let M be a closed and oriented $n$-manifold with fundamental class $[M]\in H_n(M;R)$. The map $D:H^k(M;R)\rightarrow H_{n-k}$ defined by
+ \begin{equation*}
+ D(\alpha)=[M]\frown\alpha
+\end{equation*}
+is an isomorphism for all $k$.
+\end{teo}
+
+\section{Classification of 2-connected 7-manifolds}
+
+\begin{defi}
+A homologically graded spectral sequence $E=\{E^r\}$ consists of a sequence of $\mathbb{Z}$-bigraded $R$ modules $E^r=\{E^r_{p,q}\}_{r\geq1}$ together with differentials 
+\begin{equation*}
+d^r:E^r_{p,q}\rightarrow E^r_{p-r,q+r-1}
+\end{equation*}
+such that $E^{r+1}\cong H_*(E^r)$. 
+\end{defi}
+
+\begin{defi}
+A cohomologically graded spectral sequence $E=\{E_r\}$ consists of a sequence of $\mathbb{Z}$-bigraded $R$ modules $E_r=\{E_r^{p,q}\}_{r\geq1}$ together with differentials 
+\begin{equation*}
+d^r:E_r^{p,q}\rightarrow E_r^{p+r,q-r+1}
+\end{equation*}
+such that $E_{r+1}\cong H_*(E_r)$. 
+\end{defi}
+
+\begin{defi}
+Let $D$ and $G$ be modules. An exact couple is an exact triangle
+\begin{displaymath}
+\xymatrix{ 
+D \ar[rr]^i& &D\ar[ld]^{j} \\
+ & G\ar[lu]^k &.
+}
+\end{displaymath}
+\end{defi}
+
+A spectral sequence $\{E_r\}$ is obtained from an exact couple by defining $E_1=G$, $d_1=jk$ and defining the derived couple
+\begin{displaymath}
+\xymatrix{ 
+i(D) \ar[rr]^{i'}& &i(D)\ar[ld]^{j'} \\
+ & E_2\ar[lu]^{k'} &.
+}
+\end{displaymath}
+where $E_2=H_{*}(E_1)$ with respect to $d_1$, $i'$ is induced by $i$, $k'$ is induced by $k$, and $j'(i(a))=\{j(a)\}$. One can show these maps are well defined and the derived couple will again be exact couple. This process leads to an inductive definition of a spectral sequence. 
+
+Let $C$ be a torsion-free chain complex over $\mathbb{Z}$. From the short exact sequence of groups
+\begin{equation*}
+0\longrightarrow\mathbb{Z}\longrightarrow\mathbb{Z}\longrightarrow\mathbb{Z}/p\mathbb{Z}
+\end{equation*}
+we obtain a short exact sequence of chain complexes
+\begin{equation*}
+0\longrightarrow C\longrightarrow C\longrightarrow C\otimes\mathbb{Z}/p\mathbb{Z}.
+\end{equation*}
+
+By the usual argument the homology of 
+\begin{equation}
+%\begin{displaymath}
+\xymatrix{ 
+H_{*}(C) \ar[rr]^{i_{*}}& &H_{*}(C)\ar[ld]^{j_{*}} \\
+ & H_{*}(C\otimes\mathbb{Z}_p)\ar[lu]^{\partial_p} &.
+}
+%\end{displaymath}
+\end{equation}
+
+\begin{defi}
+The spectral sequence associated with the exact couple (3.1) is called the Bockstein spectral sequence of $C$ $mod\;p$.
+\end{defi}
+
+Let $M$ be a closed 2-connected manifold. The non-zero homology groups of $M$ are $H_0(M)\cong\mathbb{Z}$, $H_3(M)$, $H_4(M)$, $H_7(M)\cong\mathbb{Z}$ where by duality $H_3(M)$ is free abelian of the same torsion-free rank as $H_3(M)$. The cohomology groups are given by Poincare duality, thus $G=H_3(M)\cong H^4(M)$.
+Let $T$ denote the torsion group subgroup of $G$. Thus we have a nonsingular bilinear map
+\begin{equation*}
+b:T\times T\rightarrow S
+\end{equation*}
+where $S=\mathbb{Q}/ \mathbb{Z}$ defined as follows 
+
+
+
+\section{Principal SU(n)-bundles over n-manifolds, n=7,8}
+
+We start with analysing the case of a 8-manifold since the CW-complex structure is easier to handle. Analysing the 8-manifold case will be a first attempt to look into high dimensional manifolds. 
+
+
+
+
+
+
+
+\end{document}

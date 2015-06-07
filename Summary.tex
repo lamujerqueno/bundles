@@ -1,0 +1,157 @@
+\documentclass[A4,12pt,oneside]{book}
+%\usepackage[margin=0.5in]{geometry}
+\textheight=19.94cm 
+\textwidth=14.5cm 
+%\topmargin=-4cm 
+%\bottomargin=-2cm 
+%\oddsidemargin=-0.2 cm 
+%\evensidemargin=2 cm 
+%\renewcommand{\baselinestretch}{1.5} 
+%\parindent=1.5cm 
+\usepackage{tikz}
+\usepackage{textcomp}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{amsmath,amscd}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[all,cmtip]{xy}
+
+\usepackage[toc,page]{appendix}
+
+%\usepackage[spanish,es-lcroman]{babel}
+%\usepackage[english, es-lcroman]{babel}
+
+\usepackage{courier}
+
+\usepackage{dsfont}
+
+\usepackage{enumerate}
+\usepackage{esint}
+
+\usepackage{float}
+\usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+
+\usepackage[utf8x]{inputenc}
+
+\usepackage{listings}
+
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+\usepackage{stmaryrd}
+
+\usepackage{textcomp}
+\usepackage{pdfpages}
+
+\pagestyle{headings}
+
+\theoremstyle{definition}
+
+\newtheorem{teo}{Theorem}
+\newtheorem{defi}{Definition}
+\newtheorem{ejem}{Examples}
+\newtheorem{lema}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{demo}{Proof}
+
+\begin{document}
+
+% \addcontentsline{toc}{chapter}{Introducci\'on}{}
+        \newpage
+
+%  \includepdf[pages={1}]{cover.pdf}
+
+\chapter{Steenrod algebra (Masher and Tangora)}
+
+\section{Introduction}
+%{\LARGE\textbf{Steenrod algebra (Masher and Tangora)}}\\
+
+A cohomology operation is a natural transformation $\theta:H^m(X;G)\rightarrow H^n(X;H)$, that is for all maps $f:X\rightarrow Y$ the following diagram
+\begin{displaymath}
+\xymatrix{ 
+H^m(X;G)\ar[r]^{\theta_X}\ar[d]^{f^*} &H^m(X;G')\ar[d]^{f^*} \\
+H^m(Y;G)\ar[r]^{\theta_Y} &H^m(Y;G')
+}
+\end{displaymath}
+commutes.
+\begin{defi}
+We denote by $K(G, n)$ any space which has only one non-trivial homotopy group, namely $\pi_n(K(G,n))=G$. 
+\end{defi}
+The Hurewicz homomorphism $h:\pi_i(X)\rightarrow H_i(X)$ is defined for any $X$ and any $i$ by choosing a generator $u$ of $H_i(S^i)$ and putting $h:[h]\rightarrow f_*(u)$ where $f:S^i\rightarrow X$. 
+
+\begin{defi}
+A space $X$ is said to be $n$-connected if $\pi_i(X)$ is trivial for all $i\leq n$. 
+\end{defi} 
+The Hurewicz theorem states that if $X$ is $(n-1)$-connected, then the Hurewicz homomorphism is an isomorphism in dimensions $ i \leq n$ and is still an epimorphism in dimension $n+1$. This theorem is modified if
+$n=1$; in this case the epimorphism $h:\pi_1(X)\rightarrow H_1(X)$ has a kernel the commutator subgroup of $\pi(X)$ and $h$ does not necessarily maps $\pi_2(X)$ onto $H_2(X)$.\\
+The universal coefficient theorem for cohomology gives an exact sequence
+\begin{equation*}
+0\rightarrow {\rm{Ex}}t(H_{n-1}(X),G)\rightarrow H^n(X;G)\rightarrow {\rm{Hom}}(H_n(X),G)\rightarrow 0
+\end{equation*}
+for any space X. If $X$ is $(n-1)$-connected, this becomes an isomorphism between the last two terms of the sequence, since Ext$(0,G)=0$. Now if $G=\pi_n(X)$ then the group Hom$(H_n(X),\pi_n(X))$ contains $h^{-1}$, the inverse of the Hurewicz homomorphism, which is also an isomorphism.
+\begin{defi}
+Let $X$ be $(n-1)$-connected. The fundamental class of $X$ is the cohomology class $\iota\in H^n(X;\pi_n(X))$ which correspond to $h^{-1}$ under the above isomorphism.We write sometimes $\iota_n$ or $\iota_X$ instead. 
+\end{defi} 
+\begin{teo}
+There is a one-to-one correspondence $[X,K(G,n)]\rightarrow H^n(X;G)$, given by $[f]\rightarrow f^*(\iota_n)$.
+\end {teo}
+Notation: let's write $H^m(G,n;G')$ for $H^m(K(G,n);G')$. 
+
+\begin{teo}
+Let denote $O(n,G; m,G')$ the set of all cohomolgy operations. There is a one-to one correspondence 
+\begin{equation*}
+O(G,n;G',m)\rightarrow H^m(G,n;G')
+\end{equation*}
+given by $\theta\rightarrow\theta(\iota_n)$.
+\end{teo}
+
+Read about Obstruction theory!!!
+
+
+\section{Steenrod squares}
+
+Steenrod squares are cohomology operation of type $(\mathbb {Z}_2,n;\mathbb{Z}_2,n-i)$. Given an abelian group $G$ it is possible to construct a $CW$-complex $K(G,n)$ where $n\geq 2$. In particular, we can construct a complex $K(\mathbb {Z}_2,1)$.
+
+\begin{defi}
+For each integer $i\geq 0$, define a \emph{cup-i product}
+\begin{equation*}
+C^p(K)\otimes C^q\rightarrow C^{p+q-i}(K):(u,v)\rightarrow u\smile_i v
+\end{equation*}
+\end{defi}
+ where $C^p(X)$.
+
+\chapter{Fibre bundles and Classifying Spaces}
+
+\begin{defi}
+Let $B$ be a pointed topological space. A (locally trivial) fibre bundle over $B$ consists of a map $p:E\rightarrow B$ such that for all $b\in B$ there exists an open neighbourhood $U$ of $b$ for which there is a homeomorphism $\phi:p^{-1}(U)\rightarrow p^{-1}\times U$ satisfying 
+\begin{equation*}
+\pi''\circ\phi=p\bigl |_U
+\end{equation*}
+where $\pi''$ denotes projection onto the second factor. 
+\end{defi}
+
+\begin{defi}
+Let $G$ be a topological group $B$ and $B$ a topological space. A \emph{principal G-bundle} over $B$ consists of a fibre bundle $p:X\rightarrow B$ together with an action $G\times X\rightarrow X$ such that:
+\begin{itemize}
+\item the  map $G\times X\rightarrow X\times X$ given by $(g,x)\mapsto (x,g\cdot x)$ maps $G\times X$ homeomorphically to its image;
+\item $B= X/G$ and $p:X\rightarrow X/G is the quotient map;
+
+\end{itemize}
+\end{defi}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
